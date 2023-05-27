@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <!--<script src="./assets/js/color-modes.js"></script>-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
+
+<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">PDC@UNL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
+              <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
+              <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./module02.html">Module 2.0</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./module03.html">Module 3.0</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+            -->
+        </ul>
+        <!--
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+         -->
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Begin page content -->
+
+
+<main class="flex-shrink-0">
+  <div class="container">
+
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Module 1.0</p>
+            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
+          </div>
+        </div>
+    <div class="container col-9">
+        <h1 id="background">Background</h1>
+        <p><em>Multitasking</em> can save a lot of time when performing everyday tasks.  When
+        cooking, while waiting for the water to boil you don&#39;t just stand around
+        watching the pot; you perform other tasks (cutting vegetables, measuring
+        pasta, etc.).  With larger more complex jobs, you may have multiple people
+        working together.  A restaurant would employ multiple staff - a chef to
+        prepare entrees, another to prepare deserts, etc.  Each person performs
+        a different task <em>at the same time</em>.  Having more individuals performing
+        tasks doesn&#39;t reduce the actual amount of <em>work</em>, it just makes it
+        possible to complete the work in a shorter amount of time.</p>
+        <p>In computing, these concepts are similar.  In general, only one process,
+        task, or operation can be performed on a single processor at a time.<br>However, if an operation (boiling water) needs to complete before a
+        task (cooking) can be completed, the processor can switch what it is
+        doing so that it is not &quot;idle&quot; until the operation is completed.  Similarly,
+        modern computers have multiple processors or cores that enable them to
+        perform multiple tasks at once <em>in parallel</em>.  Just as with preparing food,
+        the total amount of work is not reduced, but we may be able to execute
+        all the work in a shorter amount of actual time.</p>
+        <h2 id="sequential-computing">Sequential Computing</h2>
+        <p><strong>Sequential Computing</strong> is the usually the default way we think about computing.
+        A program&#39;s statements are executed one after the other.  For example, if we
+        consider the following &quot;code&quot;:</p>
+        <pre><code class="lang-text">
+        statement A<span class="hljs-comment">;</span>
+        statement B<span class="hljs-comment">;</span>
+        statement C<span class="hljs-comment">;</span>
+        </code></pre>
+        <p>each statement would execute in the order they are written: first <code>A</code> then
+        <code>B</code> then <code>C</code>.  In addition, the next statement would only execute after the
+        previous statement has <em>completely finished</em>.  If a statement
+        consisted of more than one operation, for example an addition and a subtraction:</p>
+        <pre><code class="lang-text">
+        <span class="hljs-attribute">r</span> = x + y - z;
+        <span class="hljs-attribute">statement</span> B;
+        </code></pre>
+        <p>the entire expression would be evaluated and assigned to the variable <code>r</code> before
+        statement <code>B</code> would begin.  We can visualize these operations as more general
+        <em>tasks</em> that have to be completed one after the other as <em>time</em> moves forward.</p>
+        <p><img src="../web/assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p>As you can see only one task is executed at any one moment of time and each
+        task executes <em>fully</em> before the next task begins.</p>
+        <h2 id="concurrency">Concurrency</h2>
+        <p>Sequential computing is somewhat limiting, it means that only one thing can be
+        done at a time even if those things <em>could</em> be done at the same time.  If you
+        only have the ability to do one thing at a time then it doesn&#39;t really matter
+        but if you do have the ability to <em>multitask</em> and do more than one thing at the
+        same time then it has the potential to speed up</p>
+        <p><em>Concurrency</em> is the ability for different tasks (or different parts of a program
+        or algorithm) can be executed out-of-order without affecting the results.<br>Concurrency can take several different forms in computing.  </p>
+        <h2 id="asynchronicity">Asynchronicity</h2>
+        <p>A program may need perform several tasks that do not necessarily need to be
+        done sequentially.  This is often the case in <em>user interfaces</em> in which a
+        human user can interact with a program in multiple different ways.  A word
+        processor allows you to continue typing as it is saving your document.  A
+        game allows you to continue playing as it generates and controls enemies around
+        you.  These tasks are usually performed <em>asynchronously</em>: tasks are
+        performed concurrently without <em>blocking</em> the execution of other tasks.  </p>
+        <p>With sequential computing, the second task was prevented from starting or
+        executing before the first task was complete.  However, with asynchronous
+        execution, two tasks can be interleaved:</p>
+        <p><img src="../web/assets/img/asynchronous.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+
+        <p>In this example, Task 1 executes for a time and then is <em>blocked</em> while
+        Task 2 executes.  Then, Task 1 takes over again and the trade-off continues
+        until each task is done.  At any one time, only one task is executing,
+        but they can be done asynchronously.  This gives a huge advantage with
+        respect to saving time.  Suppose one task has to wait for the result of
+        another task.  If the task simply continued executing by doing nothing
+        while it waited for the result it would be waiting and prevent
+        or &quot;block&quot; other tasks from executing.  Instead of this &quot;busy waiting&quot;,
+        it can pause its execution and allow another task to execute while it waits.</p>
+        <h2 id="parallel-computing">Parallel Computing</h2>
+        <p>Another way that concurrency can be achieved is through parallel computing.
+        This is when more than one task executes <em>at the same time</em>.  </p>
+        <p><img src="../web/assets/img/parallel.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p>This generally requires that each task execute on a different processor or
+        core.  However, the advantage is clear: with the ability to execute more
+        than one task at the same time, the overall time required to complete all
+        tasks can be reduced significantly.  For example, if the time required to
+        complete all tasks in parallel is 20 seconds and we evenly divide it
+        among 4 processors, the total &quot;wall clock&quot; time would only be 20 / 4 = 5
+        seconds!</p>
+        <p>Of course we have omitted a lot of details and issues surrounding concurrent
+        programming (some problems may not even be able to be solved using concurrency!).
+        However, this is enough of an introduction to get started with some codeless
+        demonstrations.  </p>
+        <h1 id="asynchronous-computing-demonstrations">Asynchronous Computing Demonstrations</h1>
+        <h2 id="slowing-things-down">Slowing Things Down</h2>
+        <p>Ironically, sometimes we want <em>slower</em> computations, or more accurately, we
+        want a computation to occur over a specific amount of time that can be perceived
+        by the human eye.</p>
+        <p>Open the <code>Async Demo 1</code> page.  This demo
+        page presents two ways of &quot;dissolving&quot; and image (making it more transparent
+        until it disappears).  </p>
+        <ol>
+        <li>Read the pseudocode provided for the sequential method and then click the
+        button to try the demo and observe the results.</li>
+        <li>Read the pseudocode provided for the asynchronous method and then click the
+        button to try the demo and observe the results.</li>
+        <li>Answer the following questions:<ul>
+        <li>How did the results differ?  Which one was better from a human perspective?</li>
+        <li>Why did you not observe a graduate transition in the sequential demonstration?</li>
+        <li>In the asynchronous demonstration, do you think the &quot;waiting&quot; was blocking
+        (it prevented other tasks from executing) or not?  What would be the effect
+        if it were blocking?</li>
+        </ul>
+        </li>
+        </ol>
+        <h2 id="user-interface-playground">User Interface Playground</h2>
+        <p>Open the <code>Async Demo 2</code> page.  This demonstration will show the differences
+        between a sequential task that <em>blocks</em> and an asynchronous task that doesn&#39;t.</p>
+        <ol>
+        <li>Interact with the <code>Say Hello!</code> button and the <code>Action</code> drop down to see how
+        they work.</li>
+        <li>Click the <code>Sequential Operation</code> button which will perform an &quot;expensive&quot;
+        sequential computation.  While it is executing attempt to interact with the
+        <code>Say Hello!</code> button and the <code>Action</code> drop down.  You can rerun the sequential
+        operation as many times as you need to observe the results.</li>
+        <li>Now click the <code>Asynchronous Operation</code> button which will perform an
+        asynchronous computation by connecting to a remote server.  Again, while it is
+        executing, attempt to interact with the
+        <code>Say Hello!</code> button and the <code>Action</code> drop down.  </li>
+        <li>Answer the following questions:<ul>
+        <li>What did you observe when trying to interact with the interface while the
+        sequential operation was executing?</li>
+        <li>What did you observe when trying to interact with the interface while the
+        asynchronous operation was executing?</li>
+        <li>What are the consequences of sequential vs asynchronous operations?</li>
+        </ul>
+        </li>
+        </ol>
+        <h1 id="parallel-computing-demonstration">Parallel Computing Demonstration</h1>
+        <p>Open the <code>Parallel Demo</code> page.  This is a simulation/visualization of parallel
+        computing.  The simulation will generate a certain number of tasks and place
+        them in a &quot;job queue&quot; where they will wait to be executed.  You can select
+        the number of tasks to generate as well as how long they will take to execute
+        (you can make them all take the same number of seconds 2-6 or they will
+        be randomized by default).  You can also specify how many processors each
+        simulation will have.</p>
+        <ol>
+        <li>Run the simulation with only 1 processor and 10 tasks and observe the results.  Note
+        that the total CPU time (upper right) is equal to the total &quot;wall clock&quot; time.</li>
+        <li>Run the simulation again with 2 processors and the same number of tasks.  </li>
+        <li>Run the simulation again with 4 processors.</li>
+        <li>Play around with the simulation with a different number of tasks, processors and
+        time(s) and answer the following:<ul>
+        <li>When you went from 1 processor to 2 processors what was the difference in the
+        <em>elapsed time</em> you observed?  When you went from 2 processors to 4 what was
+        the difference observed?</li>
+        <li>When you went from 1 processor to 2 processors what was the difference in the
+        <em>CPU time</em> you observed?  When you went from 2 processors to 4 what was
+        the difference observed?</li>
+        <li>Was the work (number of tasks) always equally distributed among all the processors?
+        Why or why not?</li>
+        <li>Was the work (total time) always equally distributed among all the processors?
+        Why or why not?</li>
+        </ul>
+        </li>
+        </ol>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+  <div class="container">
+    <span class="text-body-secondary">PDC@UNL - Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</span>
+  </div>
+</footer>
+
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+</html>
