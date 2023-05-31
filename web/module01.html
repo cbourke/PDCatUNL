@@ -241,7 +241,7 @@
         <p>the entire expression would be evaluated and assigned to the variable <code>r</code> before
         statement <code>B</code> would begin.  We can visualize these operations as more general
         <em>tasks</em> that have to be completed one after the other as <em>time</em> moves forward.</p>
-        <p><img src="../web/assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p><img src="./assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
         <p>As you can see only one task is executed at any one moment of time and each
         task executes <em>fully</em> before the next task begins.</p>
         <h2 id="concurrency">Concurrency</h2>
@@ -263,7 +263,7 @@
         <p>With sequential computing, the second task was prevented from starting or
         executing before the first task was complete.  However, with asynchronous
         execution, two tasks can be interleaved:</p>
-        <p><img src="../web/assets/img/asynchronous.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p><img src="./assets/img/asynchronous.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Asynchronous Computing" title="Asynchronous Computing"></p>
 
         <p>In this example, Task 1 executes for a time and then is <em>blocked</em> while
         Task 2 executes.  Then, Task 1 takes over again and the trade-off continues
@@ -277,7 +277,7 @@
         <h2 id="parallel-computing">Parallel Computing</h2>
         <p>Another way that concurrency can be achieved is through parallel computing.
         This is when more than one task executes <em>at the same time</em>.  </p>
-        <p><img src="../web/assets/img/parallel.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p><img src="./assets/img/parallel.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Parallel Computing" title="Parallel Computing"></p>
         <p>This generally requires that each task execute on a different processor or
         core.  However, the advantage is clear: with the ability to execute more
         than one task at the same time, the overall time required to complete all
