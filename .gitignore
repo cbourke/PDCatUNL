@@ -61,7 +61,7 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 
-# C 
+# C
 # Prerequisites
 *.d
 
@@ -145,3 +145,7 @@ Temporary Items
 
 # Development
 dev
+
+# Executables
+C/passwordCracker/crackParallel
+C/passwordCracker/crackSequential
