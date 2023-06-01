@@ -94,6 +94,8 @@ function parseValidateFormInput(id, config) {
 async function start() {
 
   Config.update(0, 0);
+  Config.cpuTime = 0.0;
+  Config.elapsedTime = 0.0;
   var numProcessors = parseValidateFormInput("#numberOfProcessors", Config.processorConfig);
   var numTasks = parseValidateFormInput("#numberOfTasks", Config.taskConfig);
   var timeOfTasks = $("#timeOfTasks").val();
@@ -115,6 +117,12 @@ async function start() {
   for(let i=0; i<numProcessors; i++) {
     startProcessor(Processor.processors[i]);
   }
+  $("#cpuTime").fadeOut(100, function() {
+    $(this).text(Config.cpuTime.toFixed(2)).fadeIn(100);
+  });
+  $("#elapsedTime").fadeOut(100, function() {
+    $(this).text(Config.elapsedTime.toFixed(2)).fadeIn(100);
+  });
 
 }
 
