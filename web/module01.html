@@ -204,157 +204,177 @@
         </div>
     <div class="container col-9">
         <h1 id="background">Background</h1>
-        <p><em>Multitasking</em> can save a lot of time when performing everyday tasks.  When
-        cooking, while waiting for the water to boil you don&#39;t just stand around
-        watching the pot; you perform other tasks (cutting vegetables, measuring
-        pasta, etc.).  With larger more complex jobs, you may have multiple people
-        working together.  A restaurant would employ multiple staff - a chef to
-        prepare entrees, another to prepare deserts, etc.  Each person performs
-        a different task <em>at the same time</em>.  Having more individuals performing
-        tasks doesn&#39;t reduce the actual amount of <em>work</em>, it just makes it
-        possible to complete the work in a shorter amount of time.</p>
-        <p>In computing, these concepts are similar.  In general, only one process,
-        task, or operation can be performed on a single processor at a time.<br>However, if an operation (boiling water) needs to complete before a
-        task (cooking) can be completed, the processor can switch what it is
-        doing so that it is not &quot;idle&quot; until the operation is completed.  Similarly,
-        modern computers have multiple processors or cores that enable them to
-        perform multiple tasks at once <em>in parallel</em>.  Just as with preparing food,
-        the total amount of work is not reduced, but we may be able to execute
-        all the work in a shorter amount of actual time.</p>
+        <p><b>Multitasking</b> can save a lot of time when performing everyday tasks.
+          For example, if you need to boil water for cooking a meal, you wouldn’t
+          just stand and watch the water warm up to the boiling point. Instead, you
+          would work on other tasks like cutting vegetables or measuring how much
+          pasta to cook. In a restaurant kitchen, you would need to simultaneously
+          coordinate tasks based on various skills and responsibilities to prepare
+          dishes. Multitasking does not reduce the total amount of work required,
+          but it does let you complete that work in less time.</p>
+        <p>Computing takes advantage of similar multitasking concepts, but in
+          general, a single processor can execute only one process, task, or
+          operation at a time. However, if one operation needs to complete before
+          another, such as boiling water before putting pasta into the pot, a
+          processor can switch from its current process to perform others
+          instead of sitting idle. Modern computers have multiple processors or
+          cores so they can perform multiple tasks in parallel. As with preparing
+          food, a computer cannot reduce the total amount of work, but parallel
+          execution can greatly reduce the overall time needed to execute that work.</p>
+        <h2 id="sequential-vs-computing">Sequential vs. Concurrent Computing</h2>
         <h2 id="sequential-computing">Sequential Computing</h2>
-        <p><strong>Sequential Computing</strong> is the usually the default way we think about computing.
-        A program&#39;s statements are executed one after the other.  For example, if we
-        consider the following &quot;code&quot;:</p>
+        <p><strong>Sequential Computing</strong> is the traditional way we think about
+          computing. A program's statements execute in sequential order, one after the
+          other. For example, the following "code" has three distinct statements:</p>
         <pre><code class="lang-text">
         statement A<span class="hljs-comment">;</span>
         statement B<span class="hljs-comment">;</span>
         statement C<span class="hljs-comment">;</span>
         </code></pre>
-        <p>each statement would execute in the order they are written: first <code>A</code> then
-        <code>B</code> then <code>C</code>.  In addition, the next statement would only execute after the
-        previous statement has <em>completely finished</em>.  If a statement
-        consisted of more than one operation, for example an addition and a subtraction:</p>
+        <p>each statement would execute in the order written: first <code>A</code>,
+          then <code>B</code>, then <code>C</code>. Importantly, a statement would
+          only execute after the previous statement completely finishes. If a
+          statement consists of multiple operations, the whole expression would
+          be evaluated before moving on. This next example shows an addition and
+          subtraction which must both be done before assigning the value to the
+          variable <code>r</code>:</p>
         <pre><code class="lang-text">
         <span class="hljs-attribute">r</span> = x + y - z;
         <span class="hljs-attribute">statement</span> B;
         </code></pre>
-        <p>the entire expression would be evaluated and assigned to the variable <code>r</code> before
-        statement <code>B</code> would begin.  We can visualize these operations as more general
-        <em>tasks</em> that have to be completed one after the other as <em>time</em> moves forward.</p>
+        <p>and only after that would <code>statement B</code> execute. We can visualize
+          these sequential operations as general tasks that must be completed
+          before beginning the next task along a timeline.</p>
         <p><img src="./assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
-        <p>As you can see only one task is executed at any one moment of time and each
-        task executes <em>fully</em> before the next task begins.</p>
-        <h2 id="concurrency">Concurrency</h2>
-        <p>Sequential computing is somewhat limiting, it means that only one thing can be
-        done at a time even if those things <em>could</em> be done at the same time.  If you
-        only have the ability to do one thing at a time then it doesn&#39;t really matter
-        but if you do have the ability to <em>multitask</em> and do more than one thing at the
-        same time then it has the potential to speed up</p>
-        <p><em>Concurrency</em> is the ability for different tasks (or different parts of a program
-        or algorithm) can be executed out-of-order without affecting the results.<br>Concurrency can take several different forms in computing.  </p>
+        <p>This chart shows how each task must fully execute before beginning the next task.</p>
+        <h2 id="concurrency">Concurrency through Asynchronicity and Parallel Computing</h2>
+        <p>We’ve seen how sequential computing can be inefficient because only
+          one task can be done at a time, but certain other tasks could be done
+          simultaneously. It wouldn’t matter if you are only able to do one thing
+          at a time, but if you can multitask, you can work more efficiently.</p>
+        <p>Concurrency is the ability of a computer to perform different tasks
+          (or even different parts of a program or algorithm) at the same time,
+          not necessarily in sequential order, without affecting behavior or
+          correctness of a program.</p>
+        <p>We can achieve concurrency computing through two main
+          approaches: asynchonicity or parallelism.</p>
         <h2 id="asynchronicity">Asynchronicity</h2>
-        <p>A program may need perform several tasks that do not necessarily need to be
-        done sequentially.  This is often the case in <em>user interfaces</em> in which a
-        human user can interact with a program in multiple different ways.  A word
-        processor allows you to continue typing as it is saving your document.  A
-        game allows you to continue playing as it generates and controls enemies around
-        you.  These tasks are usually performed <em>asynchronously</em>: tasks are
-        performed concurrently without <em>blocking</em> the execution of other tasks.  </p>
-        <p>With sequential computing, the second task was prevented from starting or
-        executing before the first task was complete.  However, with asynchronous
-        execution, two tasks can be interleaved:</p>
+        <p>Software often needs to perform several tasks which do not need to
+          be done sequentially. This is true for most graphical interfaces which
+          allow users to interact with a program in multiple different ways. For
+          example, word processors let you continue to type whether you manually
+          save or auto-save the document. Video games let you to continue
+          playing while new obstacles or enemies appear or disappear. You would
+          become very frustrated if games froze frequently to redraw all the
+          items and characters. Instead, these kinds of tasks can be performed
+          asynchronously without blocking execution of other tasks.</p>
+        <p>Compare the sequential timeline above with this timeline which shows
+          how two tasks can switch back and forth (interleave). In the sequential
+          timeline, the second task was prevented from starting until the first
+          task completed. With asynchronous execution tasks can start and
+          complete without waiting for other tasks to start or complete:</p>
         <p><img src="./assets/img/asynchronous.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Asynchronous Computing" title="Asynchronous Computing"></p>
-
-        <p>In this example, Task 1 executes for a time and then is <em>blocked</em> while
-        Task 2 executes.  Then, Task 1 takes over again and the trade-off continues
-        until each task is done.  At any one time, only one task is executing,
-        but they can be done asynchronously.  This gives a huge advantage with
-        respect to saving time.  Suppose one task has to wait for the result of
-        another task.  If the task simply continued executing by doing nothing
-        while it waited for the result it would be waiting and prevent
-        or &quot;block&quot; other tasks from executing.  Instead of this &quot;busy waiting&quot;,
-        it can pause its execution and allow another task to execute while it waits.</p>
+        <p>In this example, Task 1 executes for some time and then is blocked
+          while Task 2 executes for some other amount of time. Task 1 then
+          takes over again and this trading continues until each task completes.
+          Note that only one task executes at a time, but multiple tasks can
+          execute asynchronously. This can provide a huge time savings.</p>
+        <p>If Task 1 had to wait for the result of Task 2, Task 1 would sit
+          idle until it received that result. Even worse, other tasks would
+          sit idle or be blocked until Task 1 completed. Blocked tasks can
+          cause your computer to freeze up entirely and require rebooting.</p>
         <h2 id="parallel-computing">Parallel Computing</h2>
-        <p>Another way that concurrency can be achieved is through parallel computing.
-        This is when more than one task executes <em>at the same time</em>.  </p>
-        <p><img src="./assets/img/parallel.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Parallel Computing" title="Parallel Computing"></p>
-        <p>This generally requires that each task execute on a different processor or
-        core.  However, the advantage is clear: with the ability to execute more
-        than one task at the same time, the overall time required to complete all
-        tasks can be reduced significantly.  For example, if the time required to
-        complete all tasks in parallel is 20 seconds and we evenly divide it
-        among 4 processors, the total &quot;wall clock&quot; time would only be 20 / 4 = 5
-        seconds!</p>
-        <p>Of course we have omitted a lot of details and issues surrounding concurrent
-        programming (some problems may not even be able to be solved using concurrency!).
-        However, this is enough of an introduction to get started with some codeless
-        demonstrations.  </p>
+        <p>Another way we can achieve concurrency is through parallel computing,
+          which means more than one task executes at the same time.</p>
+        <p>Generally, parallel computing requires each task to execute on a
+          different processor or core, but the advantage is clear: if we execute
+          more than one task at the same time, the overall time required to
+          complete all tasks can be reduced significantly. For example, if the
+          time required to complete all tasks sequentially is 20 seconds but
+          we evenly divide it among 4 processors, the total "wall clock" time
+          would only be 5 seconds!</p>
+        <p>This brief explanation of concurrency and how we can achieve it
+          avoids the technical details and challenges of implementing it, and
+          many tasks cannot leverage concurrent techniques. The goal of this
+          introduction is to give you a basic idea of how it works and set
+          the foundation for some demonstrations that do not require you to
+          code or be an expert in concurrent programming.</p>
         <h1 id="asynchronous-computing-demonstrations">Asynchronous Computing Demonstrations</h1>
         <h2 id="slowing-things-down">Slowing Things Down</h2>
-        <p>Ironically, sometimes we want <em>slower</em> computations, or more accurately, we
-        want a computation to occur over a specific amount of time that can be perceived
-        by the human eye.</p>
-        <p>Open the <code>Async Demo 1</code> page.  This demo
-        page presents two ways of &quot;dissolving&quot; and image (making it more transparent
-        until it disappears).  </p>
+        <p>Ironically, , we often do not want computers to execute tasks as
+          quickly as possible. For example, there are many times when we want
+          computations to occur gradually so we can perceive changes which
+          would otherwise happen faster than our human eyes appreciate. Instead
+          of watching a two-minute video a 2x speed (taking one minute to
+          watch), what if your computer played it at 60x (taking two seconds
+          to watch)?</p>
+        <p>Click the Async Demo 1 link in the dropdown menu for this Module
+          or open it in a new tab. This demo page presents two ways of
+          "dissolving" an image (making it more transparent with the
+          background until it completely gone).</p>
         <ol>
-        <li>Read the pseudocode provided for the sequential method and then click the
-        button to try the demo and observe the results.</li>
-        <li>Read the pseudocode provided for the asynchronous method and then click the
-        button to try the demo and observe the results.</li>
-        <li>Answer the following questions:<ul>
-        <li>How did the results differ?  Which one was better from a human perspective?</li>
-        <li>Why did you not observe a graduate transition in the sequential demonstration?</li>
-        <li>In the asynchronous demonstration, do you think the &quot;waiting&quot; was blocking
-        (it prevented other tasks from executing) or not?  What would be the effect
-        if it were blocking?</li>
-        </ul>
-        </li>
+          <li>Read the pseudocode provided for the sequential method and
+            click the button to see the animation.</li>
+          <li>Read the pseudocode provided for the asynchronous method
+            and click the button to see the animation.</li>
+          <li>Answer the following questions:
+            <ol>
+              <li>How did the animations differ? Which was better
+                from a human perspective?</li>
+              <li>Why did you not see a gradual transition in the
+                sequential demonstration?</li>
+              <li>In the asynchronous demonstration, do you think
+                "waiting" was blocking other tasks from executing? What
+                would be the effect if it were blocking?</li>
+            </ol>
+          </li>
         </ol>
+
         <h2 id="user-interface-playground">User Interface Playground</h2>
-        <p>Open the <code>Async Demo 2</code> page.  This demonstration will show the differences
-        between a sequential task that <em>blocks</em> and an asynchronous task that doesn&#39;t.</p>
+        <p>Click the Async Demo 2 link in the dropdown menu for this Module
+          or open it in a new tab. This demonstration shows the differences
+          between a sequential task which blocks other tasks compared to an
+          asynchronous task which does not.</p>
         <ol>
-        <li>Interact with the <code>Say Hello!</code> button and the <code>Action</code> drop down to see how
+        <li>Interact with the <code>Say Hello!</code> button and the <code>Action</code> drop-down to see how
         they work.</li>
         <li>Click the <code>Sequential Operation</code> button which will perform an &quot;expensive&quot;
         sequential computation.  While it is executing attempt to interact with the
         <code>Say Hello!</code> button and the <code>Action</code> drop down.  You can rerun the sequential
         operation as many times as you need to observe the results.</li>
         <li>Now click the <code>Asynchronous Operation</code> button which will perform an
-        asynchronous computation by connecting to a remote server.  Again, while it is
-        executing, attempt to interact with the
-        <code>Say Hello!</code> button and the <code>Action</code> drop down.  </li>
+        asynchronous computation by connecting to a remote server.  While that asynchronous task
+        is executing, interact with the <code>Say Hello!</code> button and the <code>Action</code>
+        drop-down menu.  </li>
         <li>Answer the following questions:<ul>
-        <li>What did you observe when trying to interact with the interface while the
+        <li>What did you observe when interacting with the interface while the
         sequential operation was executing?</li>
-        <li>What did you observe when trying to interact with the interface while the
+        <li>What did you observe when interacting with the interface while the
         asynchronous operation was executing?</li>
         <li>What are the consequences of sequential vs asynchronous operations?</li>
         </ul>
         </li>
         </ol>
         <h1 id="parallel-computing-demonstration">Parallel Computing Demonstration</h1>
-        <p>Open the <code>Parallel Demo</code> page.  This is a simulation/visualization of parallel
-        computing.  The simulation will generate a certain number of tasks and place
-        them in a &quot;job queue&quot; where they will wait to be executed.  You can select
-        the number of tasks to generate as well as how long they will take to execute
-        (you can make them all take the same number of seconds 2-6 or they will
-        be randomized by default).  You can also specify how many processors each
-        simulation will have.</p>
+        <p>Click the Parallel Demo link in the drop-down menu for this Module or open
+          it in a new tab. This demo is a simulation and visualization of parallel
+          computing. The simulation generates a certain number of tasks and places
+          them in a "job queue" where they wait to be executed. You can select the
+          number of tasks to generate and how long they will take to execute. You
+          can make them all take the same number of seconds from two to six or they
+          will be randomized by default. You can also specify how many processors
+          each simulation can use.</p>
         <ol>
         <li>Run the simulation with only 1 processor and 10 tasks and observe the results.  Note
         that the total CPU time (upper right) is equal to the total &quot;wall clock&quot; time.</li>
         <li>Run the simulation again with 2 processors and the same number of tasks.  </li>
         <li>Run the simulation again with 4 processors.</li>
-        <li>Play around with the simulation with a different number of tasks, processors and
-        time(s) and answer the following:<ul>
+        <li>Play around with the simulation with a different number of tasks, processors, and
+        times and answer the following:<ul>
         <li>When you went from 1 processor to 2 processors what was the difference in the
-        <em>elapsed time</em> you observed?  When you went from 2 processors to 4 what was
-        the difference observed?</li>
+        <em>elapsed time</em> you observed?  What about the difference from 2 to 4 processors?</li>
         <li>When you went from 1 processor to 2 processors what was the difference in the
-        <em>CPU time</em> you observed?  When you went from 2 processors to 4 what was
-        the difference observed?</li>
+        <em>CPU time</em> you observed?  What about the difference from 2 to 4 processors?</li>
         <li>Was the work (number of tasks) always equally distributed among all the processors?
         Why or why not?</li>
         <li>Was the work (total time) always equally distributed among all the processors?
