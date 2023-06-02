@@ -35,7 +35,7 @@ public class CrackSequential {
 					System.out.printf("Cracked password: %s => %s\n", hashedPassword, password);
 					System.out.printf("Hashes Computed: %d\n", counter);
 					System.out.printf("Total Time: %f seconds\n", (end - start) / 1000.0);
-					System.out.printf("CPU(?) Time: %f seconds\n", (nEnd - nStart) / 1.0e9);
+					System.out.printf("CPU Time: %f seconds\n", (nEnd - nStart) / 1.0e9);
 					System.exit(0);
 				}
 			}
@@ -46,7 +46,7 @@ public class CrackSequential {
 		System.out.printf("Password not found!\n");
 		System.out.printf("Hashes Computed: %d\n", counter);
 		System.out.printf("Total Time: %f seconds\n", (end - start) / 1000.0);
-		System.out.printf("CPU(?) Time: %f seconds\n", (nEnd - nStart) / 1.0e9);
+		System.out.printf("CPU Time: %f seconds\n", (nEnd - nStart) / 1.0e9);
 
 	}
 
