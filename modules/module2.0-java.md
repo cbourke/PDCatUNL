@@ -30,7 +30,7 @@ you would never be able to find the correct password which maps to this
 hash because there could be *multiple* passwords which map to it! However,
 you *can* make guesses until you find one that matches.
 
-For example, users tech to use passwords which are common words or sequences of characters like "secret" or "qwerty". These types of passwords are bad choices because they are weak to *dictionary attacks*. A dictionary attack involves using a common English dictionary or list of known popular passwords as your starting guesses. You then hash every entry in your dictionary and check whether it matches the given hash. If you find a match, then you know the original password!
+For example, users tend to use passwords which are common words or sequences of characters like "secret" or "qwerty". These types of passwords are bad choices because they are weak to *dictionary attacks*. A dictionary attack involves using a common English dictionary or list of known popular passwords as your starting guesses. You then hash every entry in your dictionary and check whether it matches the given hash. If you find a match, then you know the original password!
 
 One approach for defeating this "easy" attack is to require users to create passwords which contain at least one character which is: an uppercase letter, a lowercase letter, a number, and a special symbol. This doesn't prevent anyone from trying to "brute force" every possibility, but it makes it more difficult than if you only had to guess common words.
 
