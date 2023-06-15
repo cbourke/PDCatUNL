@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <!--<script src="./assets/js/color-modes.js"></script>-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
+
+<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">PDC@UNL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
+              <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
+              <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 2.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module02.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module02-c.html">C Version</a></li>
+              <li><a class="dropdown-item" href="./module02-java.html">Java Version</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./module03.html">Module 3.0</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+            -->
+        </ul>
+        <!--
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+         -->
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Begin page content -->
+
+
+<main class="flex-shrink-0">
+  <div class="container">
+
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Module 2.0 - Java Version</p>
+            <p>In this module, you will use parallel computing to speed up computations which would otherwise take a significant amount of time using traditional methods.</p>
+          </div>
+        </div>
+    <div class="container col-9">
+
+      <h1 id="demonstration-exercises-java-version">Demonstration &amp; Exercises - Java version</h1>
+      <p>To keep things simple, lets break passwords which are limited to the following format: a dictionary word followed by a 2-digit number. For example, <code>&quot;password42&quot;</code> or <code>&quot;jordan23&quot;</code>. We have provided starter code to perform a dictionary attack
+      against these types of passwords. To start, clone our project (using Eclipse) from:</p>
+      <p><a href="https://github.com/cbourke/PDCatUNL">https://github.com/cbourke/PDCatUNL</a></p>
+      <h2 id="sequential-benchmarking">Sequential Benchmarking</h2>
+      <p>Included in the code is a standard American dictionary of 247,406 words. With 100 possible 2-digit number, that means there are
+      24,740,600 possible passwords in our limited format. First, we&#39;ll try to crack passwords sequentially, trying each possible password one after another until all possible passwords have been hashed and checked for a match.</p>
+      <ol>
+      <li><p>Open the <code>CrackSequential</code> Java source file.</p>
+      </li>
+      <li><p>Run the program by providing a hashed password as a single argument. The program will hash all possible passwords until it finds a match with the given hash. If it finds a match, it will stop and report the matched password. It will also report an <em>estimate</em> of total processor time as well as the &quot;wall clock&quot; time it took to execute the program. If the program does not find a match it will report this as well. The output should look <em>something</em> like the following:</p>
+      </li>
+      </ol>
+      <pre><code class="lang-text">Password not found!
+      Hashes Computed: <span class="hljs-number">24740600</span>
+      Total Time: <span class="hljs-number">35.815000</span> seconds
+      CPU Time: <span class="hljs-number">35.814595</span> seconds
+      </code></pre>
+      <p>The output indicates that the program tested all 24,740,600 possible passwords but did not find a match. It took <code>35.81</code> seconds to execute.</p>
+      <ol>
+      <li><p>Run the program and attempt to crack the following hashed passwords. Note the time it took for each.</p>
+      <ul>
+      <li><code>&quot;0x0fb123ac46c55452dad8fdc41ba47944f57d929f06f0f1830574dd7f8c262d07&quot;</code></li>
+      <li><code>&quot;0x194892d83bf082f174fe57ebdf10c9b9e4eaf5d0e16f24d1ffb848e95ccbd4b4&quot;</code></li>
+      <li><code>&quot;0x618e0fcd87c82dea5cbc48b6ca32415951c79d21fc17a9a2e8a6170994b0cb0b&quot;</code></li>
+      </ul>
+      </li>
+      <li><p>Answer the following questions:</p>
+      <ul>
+      <li>How much time did it take for each password?</li>
+      <li>What percentage of processor capacity did each run take?</li>
+      <li>Why do you think it might take more or less time to break different passwords using this method?</li>
+      <li><em>About</em> how many hashes did the program test per second? How long would it take to test one billion hashes? How long would it take to test one trillion hashes?</li>
+      </ul>
+      </li>
+      </ol>
+      <h3 id="discussion">Discussion</h3>
+      <p>Below are some partial example outputs from the program.</p>
+      <pre><code class="lang-text">Hashes <span class="hljs-string">Computed:</span> <span class="hljs-number">1943</span>
+      Total <span class="hljs-string">Time:</span> <span class="hljs-number">0.793000</span> seconds
+      CPU <span class="hljs-string">Time:</span> <span class="hljs-number">0.792051</span> seconds
+      ...
+      Hashes <span class="hljs-string">Computed:</span> <span class="hljs-number">12349843</span>
+      Total <span class="hljs-string">Time:</span> <span class="hljs-number">20.178000</span> seconds
+      CPU <span class="hljs-string">Time:</span> <span class="hljs-number">20.177419</span> seconds
+      ...
+      Hashes <span class="hljs-string">Computed:</span> <span class="hljs-number">24740543</span>
+      Total <span class="hljs-string">Time:</span> <span class="hljs-number">34.611000</span> seconds
+      CPU <span class="hljs-string">Time:</span> <span class="hljs-number">34.610374</span> seconds
+      </code></pre>
+      <p>Observations:</p>
+      <ul>
+      <li>The CPU time and the &quot;real&quot; (or wall clock) time is roughly the same for every run of the program. This is because the program is running on one processor nearly the entire time.</li>
+      <li>The program is faster for passwords which appear earlier in the dictionary, slower for those later in the dictionary, and slowest overal when it fails to find a matching password because it hashes and compares all 24 million possibilities. The program only runs &quot;faster&quot; because it gets lucky with an early entry.</li>
+      <li>In the last run of the program, it ran for 328 seconds (about 75,309 hashes per second). In practice, rules for passwords are more strict. For example, a system may require a combination of uppercase and lowercase letters as well as numbers ($26+26+10 = 62$ possible characters) with a specific overall minimum number of characters. With these simple additional requirements and a minimum length of 10 characters, there are over $62^{10} = 8.39 \times 10^{17}$, or 839 quadrillion possible hashes to check. If we can process 75,309 hashes per second, it would take over 353,271 <em>years</em> to try every possible password! This is why most systems implement more complicated password requirements. At 727,663 hashes per second, it would take up to 36,562 <em>years</em> to try every possible password! This is why most systems implement more complicated password requirements.</li>
+      </ul>
+      <h2 id="parallel-speedup">Parallel Speedup</h2>
+      <p>Now let&#39;s see how we can use parallel computing to speed things up. We have provided a parallelized, configurable version of the same password cracking program. The program divides the work of hashing and checking all possible passwords among different <em>threads</em> which can each run on their own different processors at the same time, thus in <em>parallel</em>. A thread is simply a chunk of code that can run independently of the main program. For example, if we divide all 24 million passwords among four threads (and four processors), each would only need to compute six million possible hashes, or only 25% of the work! If all 4 run at the same time, we <em>might</em> see a 4x speed improvement!</p>
+      <ol>
+      <li><p>Open the <code>CrackParallel</code> Java source file.</p>
+      </li>
+      <li><p>For testing purposes, we&#39;ll try to crack one of the passwords that appears later in the dictionary to ensure it takes the maximum amount of time. You can run the program with two arguments. For example:</p>
+      <p><code>&quot;0x618e0fcd87c82dea5cbc48b6ca32415951c79d21fc17a9a2e8a6170994b0cb0b&quot; 4</code></p>
+      <p>The <strong>4</strong> at the end is a configuration parameter which specifies how many threads the program should use.</p>
+      </li>
+      <li><p>Run the program on the same hashes from the prior task, but try different numbers of threads: try 1, 2, 4, 8, 16, 32, 64, 128, and 256 threads by changing the last parameter and note the time it takes for the program to run.</p>
+      </li>
+      <li><p>Answer the following questions:</p>
+      <ul>
+      <li>How much time did it take for each password and the different number of threads?</li>
+      <li>What percentage of processor power did each run take and how does that relate to the number of threads? Why did it not change for the last two runs?</li>
+      <li>What pattern did you observe for CPU time compared to actual (wall clock) time? Explain the difference.</li>
+      <li>Estimate how many processors you would need to break a 10-character password ($8.39 \times 10^{17}$ possibilities) within a reasonable amount of time, say one hour?</li>
+      </ul>
+      </li>
+      </ol>
+      <h3 id="discussion">Discussion</h3>
+      <p>Below are some partial example outputs from the program.</p>
+      <table>
+      <thead>
+      <tr>
+      <th>Number of Threads</th>
+      <th>CPU Time</th>
+      <th>Wall Clock Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td>1</td>
+      <td>33.54</td>
+      <td>33.52</td>
+      </tr>
+      <tr>
+      <td>2</td>
+      <td>36.32</td>
+      <td>18.43</td>
+      </tr>
+      <tr>
+      <td>4</td>
+      <td>37.42</td>
+      <td>9.79</td>
+      </tr>
+      <tr>
+      <td>8</td>
+      <td>51.79</td>
+      <td>7.15</td>
+      </tr>
+      <tr>
+      <td>16</td>
+      <td>98.67</td>
+      <td>7.13</td>
+      </tr>
+      <tr>
+      <td>32</td>
+      <td>101.16</td>
+      <td>7.17</td>
+      </tr>
+      <tr>
+      <td>64</td>
+      <td>104.14</td>
+      <td>7.36</td>
+      </tr>
+      <tr>
+      <td>128</td>
+      <td>107.35</td>
+      <td>7.68</td>
+      </tr>
+      <tr>
+      <td>256</td>
+      <td>136.96</td>
+      <td>9.63</td>
+      </tr>
+      </tbody>
+      </table>
+      <p>Observations</p>
+      <ul>
+      <li>We observed a speed up nearly proportional to the number of threads we used. In other words: when we doubled the number of threads, the &quot;wall clock&quot; time was essentially <em>halved</em>.</li>
+      <li>However, the total <em>processor</em> time stayed the same or went up! Alhough we split the work among all processors and each processor only did a fraction of the work, the <em>total</em> work did not change.</li>
+      <li>We did not observe any speed up after 8 threads. This is because the machine we ran it on was an 8-core i9. At most only 8 processes or threads can be running at any one time.</li>
+      <li>In fact, we saw total CPU time <em>increase</em> with more threads. Although only 8 could run at a time, it took more CPU time and resources to perform <em>context switching</em> between threads and manage them.</li>
+      <li>Assuming 750,000 hashes can be computed <em>per thread</em> per second we would need roughly 310,741,000, or more than 300 million processors to break an arbitrary lower/upper case/number combination password!</li>
+      </ul>
+
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+  <div class="container">
+    <span class="text-body-secondary">PDC@UNL - Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</span>
+  </div>
+</footer>
+
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+</html>
