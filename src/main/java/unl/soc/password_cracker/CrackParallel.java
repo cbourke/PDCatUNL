@@ -9,6 +9,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import unl.soc.Dictionary;
+
 /**
  * A brute-force, parallel password cracker that performs a dictionary attack
  * (given the SHA-256 hashed password) on all {@link Dictionary#WORDS} with 2

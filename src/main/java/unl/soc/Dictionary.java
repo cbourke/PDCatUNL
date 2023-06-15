@@ -1,4 +1,4 @@
-package unl.soc.password_cracker;
+package unl.soc;
 
 import java.io.File;
 import java.io.FileNotFoundException;

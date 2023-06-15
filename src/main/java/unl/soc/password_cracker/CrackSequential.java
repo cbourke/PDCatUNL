@@ -1,5 +1,7 @@
 package unl.soc.password_cracker;
 
+import unl.soc.Dictionary;
+
 /**
  * A brute-force, sequential password cracker that performs a dictionary attack
  * (given the SHA-256 hashed password) on all {@link Dictionary#WORDS} with 2
