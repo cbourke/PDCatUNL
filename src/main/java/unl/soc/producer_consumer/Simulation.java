@@ -21,8 +21,6 @@ public class Simulation {
 	public static final double REQUEST_GENERATION_INTERVAL_SEC_MIN = 2.0;
 	public static final double REQUEST_GENERATION_INTERVAL_SEC_MAX = 5.0;
 
-	public static final int MAX_RUNTIME_SECONDS = 60;
-
 	public static void main(String args[]) {
 		Configurator.initialize(new DefaultConfiguration());
 		Configurator.setRootLevel(Level.INFO);
