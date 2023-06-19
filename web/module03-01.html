@@ -8,11 +8,57 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
+    <title>PDC@UNL - Producer-Consumer Demo</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+    <script src="./assets/js/m3p1.js"></script>
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+
+      .consumer {
+        background-color: rgba(225, 225, 225, 1.0);
+        min-height: 250px;
+        border: thin solid rgba(0, 0, 0, .5);
+        padding: .25em;
+        margin: .25em;
+      }
+
+      .producer {
+        background-color: rgba(225, 225, 225, 1.0);
+        min-height: 250px;
+        border: thin solid rgba(0, 0, 0, .5);
+        padding: .25em;
+        margin: .25em;
+      }
+
+      .loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 40px;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 40px;
+  }
+}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -84,6 +130,35 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
+
+      .feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: .75rem;
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: .75rem;
+}
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.feature-icon-small {
+  width: 3rem;
+  height: 3rem;
+}
+
+
     </style>
 
 
@@ -107,40 +182,6 @@
       </symbol>
     </svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
 
 
 <header>
@@ -154,7 +195,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
@@ -169,10 +210,18 @@
           <li class="nav-item">
             <a class="nav-link" href="./module02.html">Module 2.0</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./module03.html">Module 3.0</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 3.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module03.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-01.html">Demo</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-c.html">C Version</a></li>
+              <li><a class="dropdown-item" href="./module03-java.html">Java Version</a></li>
+            </ul>
           </li>
-          <!--
+                    <!--
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li>
@@ -193,30 +242,84 @@
 
 
 <main class="flex-shrink-0">
-  <div class="container">
+  <div id="mainContainer" class="container" style="">
+    <div id="titleContainer" class="container" style="background-color: rgba(211,211,211,0.0)">
+      <h1 class="display-5 fw-bold">Producer-Consumer Demonstration</h1>
+      <p class="col-md-8"><!-- TODO --></p>
+    </div><!-- /#titleContainer -->
 
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-          <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
-
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module01.html" role="button">Get Started</a>
+    <div id="control" class="container" style="border: 1px solid black; padding: 1em; margin: 1em; background-color: rgba(200,200,200,0.10)">
+      <div class="container row">
+      <div id="controlDiv" class="container col-6" style="padding: 1em; background-color: rgba(0,255,0,0.0)">
+        <h3>Configuration</h3>
+        <div class="form-outline">
+          <div class="row">
+              <div class="col-4">
+                <label class="form-label" for="numberOfProducers">Number of Produers</label>
+                <input type="number" id="numberOfProducers" value="3" min="1" max="5" class="form-control" />
+              </div>
+              <div class="col-4">
+                <label class="form-label" for="numberOfConsumers">Number of Consumers</label>
+                <input type="number" id="numberOfConsumers" value="3" min="1" max="5" class="form-control" />
+              </div>
+              <!--
+              <div class="col-4">
+                <label class="form-label" for="timeOfTasks">Time of Tasks</label>
+                <select class="form-select" id="timeOfTasks" aria-label="Default select example">
+                  <option value="Random" selected>Random (2-6s)</option>
+                  <option value="2">2s</option>
+                  <option value="3">3s</option>
+                  <option value="4">4s</option>
+                  <option value="5">5s</option>
+                  <option value="6">6s</option>
+                </select>
+              </div>
+            -->
           </div>
         </div>
+      </div>
+      <div id="statsDiv" class="contaier col-6" style="padding: 1em; background-color: rgba(0,255,0,0.0)">
+        <h3>Statistics</h3>
+        <ul>
+          <li>Producer Interval: 2-6 seconds</li>
+          <li>Task Time: 2-6 seconds</li>
+          <li>Current Queue Size: <span id="queueSize">0</span></li>
+          <li>Total Tasks Completed: <span id="totalTasksCompleted">0</span></li>
+        </ul>
+      </div>
+      </div>
+      <div class="container">
+        <button type="button" class="btn btn-success" onclick="start();">Start</button>
+        <button type="button" class="btn btn-danger" onclick="stop();">Stop</button>
+      </div>
 
-  </div>
+    </div>
+
+    <div id="mainArea" class="container" style="min-height: 500px">
+      <div id="mainRow" class="row justify-content-center" style="min-height: 500px;">
+        <div class="col-3" style="background-color: rgba(200,200,200,.50);  margin: 1em; border: 1px solid black">
+          <h3>Producers</h3>
+          <div class="row justify-content-center">
+            <div class="col" id="producerDiv"></div>
+          </div>
+        </div>
+        <div class="col-2" style="background-color: rgba(200,200,200,0.25);  margin: 1em; border: 1px solid black">
+          <h3>Queue</h3>
+          <div class="row justify-content-center">
+            <div class="col" id="queueDiv"></div>
+          </div>
+        </div>
+        <div class="col-3" style="background-color: rgba(200,200,200,.50);  margin: 1em; border: 1px solid black">
+          <h3>Consumers</h3>
+          <div class="row justify-content-center">
+            <div class="col" id="consumerDiv"></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#taskQueue -->
+
+  </div><!-- /#mainContainer -->
+  <div style="min-height: 200px"></div>
 </main>
 
 <footer class="footer mt-auto py-3 bg-body-tertiary">

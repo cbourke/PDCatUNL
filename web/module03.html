@@ -147,7 +147,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PDC@UNL</a>
+      <a class="navbar-brand">PDC@UNL</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -169,8 +169,16 @@
           <li class="nav-item">
             <a class="nav-link" href="./module02.html">Module 2.0</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./module03.html">Module 3.0</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 3.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module03.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-01.html">Demo</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-c.html">C Version</a></li>
+              <li><a class="dropdown-item" href="./module03-java.html">Java Version</a></li>
+            </ul>
           </li>
           <!--
           <li class="nav-item">
@@ -197,24 +205,119 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Module 3.0</p>
+            <p class="col-md-8 fs-4">In this module, you will observe a PDC pattern known as the consumer-producer
+            pattern which is a way of organizing, coordinating, and handling asynchronous
+            &quot;requests&quot; for work.</p>
 
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module01.html" role="button">Get Started</a>
+            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
+    <div class="container col-9">
+
+      <h1 id="problem-statement">Problem Statement</h1>
+      <p>A common scenario in computing is when there are a collection of independent
+      asynchronous &quot;entities&quot; that make requests for work that require computational
+      resources.  For example, thousands or millions of users make a request to a
+      webserver for an image or webpage.  There needs to be a mechanism by which each
+      request is received, organized and handled so that the computational resources
+      can be coordinated and shared.</p>
+      <p>Consider the real-world example of <em>n</em> lunch customers at a restaurant that
+      has  <em>m</em> order kiosks.  Each customer needs access to a kiosk to make their
+      order and only one customer can use the kiosk at once.  If two customers
+      approach the same kiosk at the same time, we need a way to ensure that they
+      each get a turn.</p>
+      <p>These scenarios can be modeled as a <em>producer-consumer</em> pattern in which
+      a collection of independent <em>producers</em> generate requests and a collection
+      of <em>consumers</em> &quot;handle&quot; the requests.  To organize and coordinate this process
+      producers submit their requests to a <em>blocking queue</em>.  A queue is simply a
+      &quot;line&quot; (like a line at the restaurant) in which requests wait until a consumer
+      takes the next one.  </p>
+      <p>The queue coordinates this by <em>blocking</em> consumers and/or
+      producers in the following manner.  If the queue has a maximum capacity and
+      is full, producers are blocked from generating any more requests.  If the
+      queue is empty (there are no waiting requests) and a consumer tries to handle
+      the next request it is blocked and told to wait.  The queue notifies the
+      consumer when a new request becomes available.  This scenario is visualized
+      here:</p>
+      <p><img src="./assets/img/producerConsumer.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Producer Consumer Pattern" title="Producer Consumer Pattern"></p>
+      <p>There are several situations that may present problems in a producer-consumer
+        scenario:
+        <ul>
+          <li>What happens when there are more producers than consumers or producers
+            make many requests that producers cannot handle them all?</li>
+          <li>What happens when there are more consumers than producers?</li>
+          <li>What happens when the queue is <em>full</em> and cannot take any more requests?</li>
+        </ul>
+      <p>You will witness these situations in the following exercises.
+
+      <h2 id="visualization">Visualization</h2>
+      <p>To give you an idea of how a producer-consumer pattern works we&#39;ve provided
+      a simple visualization simulating a generic request system.  Open the
+      <a href="./module03-01.html" target="_blank">demonstration</a> in a new tab.
+      You'll be able to specify how many producers and consumers to create and you can
+      then start the demo.  Producers will (randomly every 2-6 seconds) produce new
+      tasks and submit them to the queue.  Consumers will continuously try to take
+      a task from the queue and run them.  Each task takes 2-6 seconds and once
+      completed, the consumer will take the next task.  You can stop the simulation
+      and start a new one.  Play around with the demonstration and try the following:
+      <ol>
+        <li>Run the simulation with 3 producers and 3 consumers.  After a few minutes
+            how many tasks are waiting in the queue?</li>
+        <li>Run the simulation with 5 producers and 1 consumer.  After a few minutes
+            how many tasks are waiting in the queue?  If you continued running
+            this simulation what would you expect to happen?</li>
+        <li>Run the simulation with 1 producer and 5 consumers.  After a few minutes
+            how many tasks are waiting in the queue?  What is one risk/disadvantage
+            in this scenario?</li>
+        <li>This simulation provided an <em>unbounded</em> queue: there was no limit
+          to the size of the queue.  Suppose we instead used a <em>bounded</em> queue
+          that only allowed (say) 10 tasks in the queue at once.  What do you think
+          would happen and how <em>should</em> that situation be handled?</li>
+      </ol>
+
+      <h2 id="demonstration-exercises-java-version">Code Demonstration &amp; Exercises</h2>
+
+      <p>We have written a producer-consumer simulation in two different languages.
+        Choose either C or Java or do both!</p>
+
+        <a class="btn btn-primary" href="module03-c.html" role="button">C Version</a>
+        <a class="btn btn-primary" href="module03-java.html" role="button">Java Version</a>
+
+      <h2>Discussion</h2>
+
+      <p>Hopefully you made the following observations.</p>
+      <ul>
+        <li>When there are more producers than consumers or when the producers create more
+        requests than the consumers can handle, the queue continuously grew in size and
+        tasks were waiting longer and longer to execute.</li>
+        <li>In all the simulations we provided an <em>unbounded</em> (or at least
+          a very large) blocking queue so you likekly did not observe what happened
+          when it got full.  Generally, when the queue is full, producers are either
+          blocked or their tasks are rejected.  Think of the restaurant analogy:
+          suppose that there are so many customers that the line to the kiosk is full.
+          In an unbounded queue, customers would continue to line up around the block.
+          In a bounded queue (suppose fire regulations only allowed so many customers
+          in the building), customers may be asked to leave and come back at another
+          time.  In either case, we may have some irate customers (not being served
+          or waiting for a very long time).  Likewise, in our simulation, some
+          tasks may end up timing out or not getting executed.
+        <li>When there were more consumers than producers, we observed just the
+          opposite.  Requests were handled almost immediately without waiting and
+          the queue never had more than 1 or 2 tasks waiting in it.  This may
+          seem ideal, but a consumer is a non-trivial resource.  If consumers are
+          sitting idle most of the time they may be wasting resources depending
+          on <em>how</em> they are waiting (busy or blocked).</li>
+        <li>Finding a good balance between the number of producers/consumers is
+          actually an entire field of study in mathematics called
+          <a href="https://en.wikipedia.org/wiki/Queueing_theory">Queueing Theory</a>.</li>
+      </ul>
+
+
+      <div style="min-height: 200px;">&nbsp;</div>
+
+    </div>
 
   </div>
 </main>

@@ -12,6 +12,15 @@
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -147,7 +156,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PDC@UNL</a>
+      <a class="navbar-brand">PDC@UNL</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -169,8 +178,16 @@
           <li class="nav-item">
             <a class="nav-link" href="./module02.html">Module 2.0</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./module03.html">Module 3.0</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 3.0</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./module03.html">Overview</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-01.html">Demo</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="./module03-c.html">C Version</a></li>
+              <li><a class="dropdown-item" href="./module03-java.html">Java Version</a></li>
+            </ul>
           </li>
           <!--
           <li class="nav-item">
@@ -197,24 +214,94 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Module 3.0 - Java Demonstration</p>
+            <p class="col-md-8 fs-4"></p>
 
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module01.html" role="button">Get Started</a>
+            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
+    <div class="container col-9">
+
+      <h2 id="demonstration-exercises-java-version">Demonstration &amp; Exercises - Java version</h2>
+      <p>We have written a producer-consumer simulation in Java that is available
+      in the same Eclipse project available at <a href="https://github.com/cbourke/PDCatUNL">https://github.com/cbourke/PDCatUNL</a></p>
+      <p>We have provided several classes (in <code>unl.soc.producer_consumer</code>) that
+      simulate a producer-consumer scenario:</p>
+      <ul>
+      <li><code>RequestGenerator</code> is the producer class.  It runs continuously in its own
+      thread and generates a new request at random intervals.</li>
+      <li><code>RequestHandler</code> is the consumer class.  It also runs continuously in its
+      own thread and handles requests.</li>
+      <li><code>HttpDelayRequest</code> is the actual request class that is generated and handled.
+      It simply makes a dummy request to a webserver that &quot;simulates&quot; work by making
+      an artificial delay between 2 and 5 seconds (randomly)</li>
+      <li><code>RequestManager</code> coordinates the simulation by managing all the threads and
+      keeping track of all requests in a blocking queue.  </li>
+      <li><code>RequestMonitor</code> is a special class that monitors the queue and reports how
+      many requests are awaiting execution (it reports every 5 seconds).</li>
+      </ul>
+      <h3 id="instructions">Instructions</h3>
+      <ol>
+      <li>Open the <code>Simulation</code> class and observe the parameters.  You can specify
+      how many <code>RequestGenerator</code>s and <code>RequestHandler</code>s to create in the simulation
+      and an interval that specifies how often each <code>RequestGenerator</code> generates
+      a request (initially it is between 2 and 5 seconds).  </li>
+      <li>Run the simulation by running the <code>Simulation</code> class with the provided parameters and
+      observe the output.  The <code>RequestGenerator</code>s and <code>RequestHandler</code>s report on
+      each action and the <code>RequestMonitor</code> periodically reports how many tasks are
+      waiting in the queue.  The simulation runs continuously; to stop it you&#39;ll need
+      to kill the program manually (the stop button in Eclipse).  </li>
+      <li>Run/rerun the simulation for a few minutes with the following parameters and observe and
+      note the results.</li>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">Number of Producers</th>
+    <th class="tg-0pky">Number of Consumers</th>
+    <th class="tg-0pky">Interval Min</th>
+    <th class="tg-0pky">Interval Max</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">6<br></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">1<br></td>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">6<br></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">2<br></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5<br></td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">10<br></td>
+  </tr>
+</tbody>
+</table>
+      <li>Go back to the module <a href="module03.html">overview</a> and read the Discussion section.</li>
+
+      </ol>
+
+
+    </div>
 
   </div>
 </main>
