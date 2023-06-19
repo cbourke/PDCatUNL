@@ -25,7 +25,7 @@ public class RequestHandler implements Runnable {
 
 		while (true) {
 			Request req = RequestManager.handle();
-			LOGGER.info(String.format("RequestHandler #%d executing #%d executing...", this.id, req.getId()));
+			LOGGER.info(String.format("RequestHandler #%d executing Request #%d ...", this.id, req.getId()));
 			double delaySeconds = req.executeAction();
 			LOGGER.info(String.format("RequestHandler #%d finished Request #%d (%.2f seconds)", this.id, req.getId(),
 					delaySeconds));
