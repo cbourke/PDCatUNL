@@ -149,3 +149,4 @@ dev
 # Executables
 C/passwordCracker/crackParallel
 C/passwordCracker/crackSequential
+C/producerConsumer/simulate
