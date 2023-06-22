@@ -208,8 +208,8 @@
             <h1 class="display-5 fw-bold">PDC@UNL</h1>
             <p class="col-md-8 fs-4">Module 3.0</p>
             <p class="col-md-8 fs-4">In this module, you will observe a PDC pattern known as the consumer-producer
-            pattern which is a way of organizing, coordinating, and handling asynchronous
-            &quot;requests&quot; for work.</p>
+            pattern which lets you organize, coordinate, and handle asynchronous
+            &quot;requests.&quot;</p>
 
             <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
@@ -217,30 +217,23 @@
     <div class="container col-9">
 
       <h1 id="problem-statement">Problem Statement</h1>
-      <p>A common scenario in computing is when there are a collection of independent
-      asynchronous &quot;entities&quot; that make requests for work that require computational
-      resources.  For example, thousands or millions of users make a request to a
-      webserver for an image or webpage.  There needs to be a mechanism by which each
-      request is received, organized and handled so that the computational resources
-      can be coordinated and shared.</p>
-      <p>Consider the real-world example of <em>n</em> lunch customers at a restaurant that
-      has  <em>m</em> order kiosks.  Each customer needs access to a kiosk to make their
-      order and only one customer can use the kiosk at once.  If two customers
-      approach the same kiosk at the same time, we need a way to ensure that they
-      each get a turn.</p>
-      <p>These scenarios can be modeled as a <em>producer-consumer</em> pattern in which
-      a collection of independent <em>producers</em> generate requests and a collection
-      of <em>consumers</em> &quot;handle&quot; the requests.  To organize and coordinate this process
-      producers submit their requests to a <em>blocking queue</em>.  A queue is simply a
-      &quot;line&quot; (like a line at the restaurant) in which requests wait until a consumer
-      takes the next one.  </p>
-      <p>The queue coordinates this by <em>blocking</em> consumers and/or
-      producers in the following manner.  If the queue has a maximum capacity and
-      is full, producers are blocked from generating any more requests.  If the
-      queue is empty (there are no waiting requests) and a consumer tries to handle
-      the next request it is blocked and told to wait.  The queue notifies the
-      consumer when a new request becomes available.  This scenario is visualized
-      here:</p>
+      <p>A common computing scenario is when there are a collection of independent
+      asynchronous "entities" making requests for work that require computational
+      resources. For example, you might have millions of users requesting information
+      from a webserver or simply interacting with a website. To effectively respond
+      to every user request, you need a strategy for coordinating and sharing
+      computational resources.</p>
+      <p>Consider the real-world example of <em>n</em> lunch customers at a restaurant
+        with <em>m</em> order kiosks.  Each customer needs <em>exclusive</em>
+        access to a kiosk to make an order.  If multiple customers
+      approach the same kiosk at the same time, we need a way to ensure they each get a turn to place their orders.</p>
+      <p>This scenario can be modeled as a <em>producer-consumer</em> pattern in which
+a collection of independent <em>producers</em> generate requests and a collection
+of <em>consumers</em> &quot;handle&quot; those requests. To organize and coordinate this process, producers submit requests to a <em>blocking queue</em>. A queue is simply a
+&quot;line,&quot; very similar to people standing in line to order, in which requests wait until a consumer takes the next one for handling.  </p>
+<p>The queue coordinates this by <em>blocking</em> consumers or producers in the following manner. If the queue has a maximum capacity and it is full, producers are blocked from generating any more requests. If the queue is empty (no waiting requests) and a consumer tries to handle
+a request, it is blocked and told to wait. The queue will then notify the consumer when there is a new request to handle. This scenario is visualized below.</p>
+
       <p><img src="./assets/img/producerConsumer.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Producer Consumer Pattern" title="Producer Consumer Pattern"></p>
       <p>There are several situations that may present problems in a producer-consumer
         scenario:
