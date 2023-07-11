@@ -267,7 +267,7 @@ function createTaskCard(task, status = "Pending") {
   var card = ""
   if(status === "Pending") {
    card = `
-    <div id="task${task.id}" class="card mb-3 pdcTask" style="max-width: 10rem; padding: 0px; margin: 5px;">
+    <div id="task${task.id}" class="card pdcTask" style="width: 10rem; padding: 0px; margin: 5px;">
       <div class="card-header text-bg-primary" style="margin: 0px;">Task #${task.id}</div>
       <div class="card-body">
         <p class="card-text">Time: ${task.time.toFixed(2)} s</p>
@@ -280,7 +280,7 @@ function createTaskCard(task, status = "Pending") {
     </div>`;
   } else if(status === "Running") {
      card = `
-      <div id="task${task.id}" class="card mb-3 pdcTask" style="max-width: 10rem; padding: 0px; margin: 5px;">
+      <div id="task${task.id}" class="card pdcTask" style="width: 10rem; padding: 0px; margin: 5px;">
         <div class="card-header text-bg-success" style="margin: 0px;">Task #${task.id}</div>
         <div class="card-body">
           <p class="card-text">Time: ${task.time.toFixed(2)} s</p>
