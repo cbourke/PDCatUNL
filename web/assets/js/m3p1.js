@@ -119,6 +119,7 @@ async function start() {
   Config.active = true;
   Config.queue = [];
   Config.ids = [];
+  Config.totalTasksCompleted = 0;
   $("#queueDiv").html("");
 
   var numProducers = parseValidateFormInput("#numberOfProducers", Config.producerConfig);
