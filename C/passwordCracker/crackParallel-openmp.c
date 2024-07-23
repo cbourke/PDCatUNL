@@ -5,6 +5,7 @@
 #include <omp.h>
 
 #include "sha256.h"
+#include "utils.h"
 
 int main(int argc, char **argv) {
 
@@ -19,8 +20,12 @@ int main(int argc, char **argv) {
   char *hashedPassword = argv[1];
   char hash[67];
   char password[255];
-  int counter = 0, i, j;
+  int i, j;
 
+  printf("Loading dictionary with %d words...\n", NUM_WORDS);
+  initDictionary();
+
+  printf("Using %d threads...\n", numThreads);
   omp_set_num_threads(numThreads);
 
   //search all 2 digit appended numbers...
@@ -30,7 +35,7 @@ int main(int argc, char **argv) {
   //shared: each thread should only read
   //schedule: guided = chunk size starts off large and decreases to better handle load imbalance between iterations.
   //          2000 = minimum chunk size to use
-  #pragma omp parallel for private(password,j),shared(hashedPassword,m,words),schedule(guided, 2000)
+  #pragma omp parallel for private(password,j,hash),shared(hashedPassword,m,DICTIONARY),schedule(guided, 2000)
   for(i=0; i<NUM_WORDS; i++) {
     for(j=0; j<m; j++) {
       //create password
