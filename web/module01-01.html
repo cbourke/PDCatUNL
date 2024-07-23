@@ -233,14 +233,14 @@
     <p></p>
     <h1 class="display-5 fw-bold">Asynchronous Delay Demonstration</h1>
     <p class="col-md-8">Sometimes slower operations are needed.  Observe the
-      first "disolve" effect below.  It disolves the image from
+      first "dissolve" effect below.  It dissolves the image from
       100% to 99% to 98%, etc. down to 0% but does so as fast at the computer
       can do it.  So fast that you don't even notice it and it appears to
-      disolve instantaneously.</p>
-    <p class="col-md-8">Now observe the second "disolve" effect.  It too
-      disolves the image from 100% to 99% to 98%, etc. down to 0% but does
-      intentially causes a pause (of 0.01 seconds) on each step so that the
-      effect takes 1 full second to fully disolve the image.  This
+      dissolve instantaneously.</p>
+    <p class="col-md-8">Now observe the second "dissolve" effect.  It too
+      dissolves the image from 100% to 99% to 98%, etc. down to 0% but does
+      intentionally causes a pause (of 0.01 seconds) on each step so that the
+      effect takes 1 full second to fully dissolve the image.  This
       asynchronous delay makes the effect observable.</p>
 
 
@@ -257,9 +257,9 @@
               <pre style="min-height: 100px;">
 <code>
   repeat 100 times:
-     disolve image by 1%
+     dissolve image by 1%
 </code></pre>
-  <button type="button" class="btn btn-success" style="margin: 1em;" onclick="disolveSeq();">Disolve</button>
+  <button type="button" class="btn btn-success" style="margin: 1em;" onclick="disolveSeq();">Dissolve</button>
 <img id="seqImage" class="img-fluid" src="./assets/img/unlFlowers.jpg"/>
             </div>
           </div>
@@ -269,10 +269,10 @@
               <pre style="min-height: 100px;">
 <code>
   repeat 100 times:
-     disolve image by 1%
+     dissolve image by 1%
      wait for .01 seconds
 </code></pre>
-<button type="button" class="btn btn-success" style="margin: 1em;" onclick="disolveAsync();">Disolve</button>
+<button type="button" class="btn btn-success" style="margin: 1em;" onclick="disolveAsync();">Dissolve</button>
 <img id="asyncImage" class="img-fluid" src="./assets/img/unlFlowers.jpg"/>
             </div>
 
