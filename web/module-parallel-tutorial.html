@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
     <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -105,6 +107,42 @@
       </symbol>
     </svg>
 
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -170,15 +208,12 @@
               </ul>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Version 1.1.0</a>
-            </li>
-
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
 
 <!-- Begin page content -->
 
@@ -188,25 +223,95 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
-
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module-parallel.html" role="button">Get Started!</a>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Parallel Computing - Code Tutorial</p>
+            <p>In this activity, we will walk you through writing code to use OpenMP to
+              parallelize your program.</p>
           </div>
         </div>
+    <div class="container col-9">
 
+      <h1 id="">Parallelizing Code</h1>
+
+      <p>Writing parallel code can be challenging.  The traditional methods would
+        require you to define <i>threads</i> which are part of a program that
+        can be run concurrently while sharing some resources (memory) but that
+        are still part of one program or process.  A multithreaded program needs
+        to be written to manage its threads and ensure that they all execute
+        correctly as well as managing shared resources to ensure threads do not
+        interfere with each other.  If you are interested in what this looks
+        like in C, view the source code for the <code>crackParallel.c</code>
+        program you built and ran.</p>
+
+      <p>Fortunately, we can utilize a library to do most of this work for us.
+        <a href="https://www.openmp.org/">OpenMP</a> is an open-source standard
+        that is utilized in many programming languages to make writing multithreaded
+        programs easier.  To get exposure to how ridiculously easy this is, we'll
+        walk you through and example.  Consider again the <code>crackSequential</code>
+        program that you built and ran to break passwords.  We'll modify this
+        program using OpenMP so that it can be run in parallel.</p>
+
+      <h2>Instructions</h2>
+      <ol>
+        <li>Open the <code>crackParallel-openmp.c</code> in an editor and briefly
+          compare it to the <code>crackSequential.c</code>.  Some code to support
+          a number of threasd command line argument has already been provided for
+          you.</li>
+        <li>Include the OpenMP library by adding the following include statement.<br/>
+          <code>#include &lt;omp.h&gt;</code></li>
+        <li>After the dictionary has been loaded (the call to the <code>initDictionary()</code>),
+          add the following line.  This will setup OpenMP to use the specified
+          number of threads.<br/>
+          <code>omp_set_num_threads(numThreads);</code></li>
+        <li>Now for the magic.  Add the following line above the <code>for</code>
+          loop:<br/>
+          <code>#pragma omp parallel for private(password,j,hash),shared(hashedPassword,m,DICTIONARY),schedule(guided, 2000)</code></br>
+          Let's understand what this is doing:
+          <ul>
+            <li><code>#pragma</code> is a "pragmatic" that tells the compiler
+              to use features of the OpenMP library.  It essentially adds the
+              necessary code to make your loop parallel.</li>
+            <li><code>private(password,j,hash)</code> tells OpenMP which variables
+              should be <i>not</i> be shared between threads and instead makes
+              distinct copies for each thread.  For example, the <code>password</code>
+              and <code>j</code> are variables that are updated <i>inside</i>
+              the for loop and are unique to each thread.  It wouldn't work
+              if the same value of <code>j</code> were used by all threads.</li>
+            <li><code>shared(hashedPassword,m,DICTIONARY)</code> specifies variables
+              that <i>are</i> shared among each thread.  None of these variables are
+              changed inside the loop and so the same value can be used by all
+              threads.  By default, variables are considered <code>shared</code>
+              unless you specify them <code>private</code> so this isn't strictly
+              necessary, but for illustrative purposes, we identified all variables
+              explicitly (and it is best practice).</li>
+            <li><code>schedule(guided, 2000)</code> tells OpenMP how to split
+              up the work.  The outer <code>for</code> loop will execute 247,406
+              times, once for each word in the dictionary.  This line splits it
+              up so that each thread will process (at least) 2,000 words.  This is known as
+              a <i>chunk</i> of work.  The <code>guided</code> is a strategy by
+              which chunks are divided among threads (but we won't get into specifics
+              on this).</li>
+          </ul>
+        </li>
+        <li>Now when your program runs, OpenMP will split the work of testing
+          247,406 dictionary words among the specified number of threads.
+          For example, if you specify 8 threads, each one will be responsible
+          for checking about about <code>247,406 / 8 = 30,925</code> words.  You
+          can expect your program to run <i>about</i> 8 times as fast!</li>
+        <li>Let's actually run your program now.  Build this OpenMP program by
+          running the following command:<br/>
+          <code>make crackOpenMP</code></br>
+          which produces an executable called <code>crackOpenMP</code></li>
+        <li>Run your program similar to how you ran the other version:<br/>
+          <code>time ./crackOpenMP "0x618e0fcd87c82dea5cbc48b6ca32415951c79d21fc17a9a2e8a6170994b0cb0b" 8</code></li>
+      </ol>
+      <p>Congratulations on <b>writing</b> your first multithreaded program!</p>
+
+
+
+      <div style="min-height: 200px;">&nbsp;</div>
+
+    </div>
   </div>
 </main>
 

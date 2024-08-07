@@ -143,59 +143,77 @@
     </div>
 
 
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand">PDC@UNL</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
-              <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
-              <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./module02.html">Module 2.0</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 3.0</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./module03.html">Overview</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module03-01.html">Demo</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module03-c.html">C Version</a></li>
-              <li><a class="dropdown-item" href="./module03-java.html">Java Version</a></li>
-            </ul>
-          </li>
-          <!--
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">PDC@UNL</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+
+              <!--
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
+                  <div class="dropdown-divider"></div>
+                  <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
+                  <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
+                  <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
+                </ul>
+              </li>
             -->
-        </ul>
-        <!--
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-         -->
-      </div>
-    </div>
-  </nav>
-</header>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Parallel Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-parallel.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="./module-parallel-visual.html">Visualization Demo</a></li>
+                <li><a class="dropdown-item" href="./module-parallel-demo.html">Code Demo</a></li>
+                <li><a class="dropdown-item" href="./module-parallel-tutorial.html">Code Tutorial</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="./module-parallel.html" data-bs-toggle="dropdown" aria-expanded="false">Asynchronous Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-asynch.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <!-- TODO: Design a sequence graph visualization demo
+                <li><a class="dropdown-item" href="./module-asynch-visual.html">Demo</a></li>
+                -->
+                <li><a class="dropdown-item" href="./module-asynch-demo.html">Demo</a></li>
+                <!--
+                <li><a class="dropdown-item" href="./module-asynch-demo.html">Code Demo</a></li>
+                <li><a class="dropdown-item" href="./module-asynch-tutorial.html">Code Tutorial</a></li>
+                -->
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="./module-dist.html" data-bs-toggle="dropdown" aria-expanded="false">Distributed Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-dist.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="./module-dist-visual.html">Visualization Demo</a></li>
+                <li><a class="dropdown-item" href="./module-dist-demo.html">Code Demo</a></li>
+                <!--
+                <li><a class="dropdown-item" href="./module-asynch-tutorial.html">Code Tutorial</a></li>
+                -->
+              </ul>
+            </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
 
 <!-- Begin page content -->
 
@@ -206,17 +224,29 @@
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">PDC@UNL</h1>
-            <p class="col-md-8 fs-4">Module 3.0</p>
-            <p class="col-md-8 fs-4">In this module, you will observe a PDC pattern known as the consumer-producer
-            pattern which lets you organize, coordinate, and handle asynchronous
-            &quot;requests.&quot;</p>
+            <p class="col-md-8 fs-4">Distributed Computing</p>
 
             <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
     <div class="container col-9">
 
-      <h1 id="problem-statement">Problem Statement</h1>
+      <h1>Distributed Computing</h1>
+
+      <p>Concurrent computing can also occur on a much larger
+        scale, between multiple computers.  In fact, most modern computing involves
+        at least two (a server-client model) or more computers working together to
+        solve a problem or process data.  Concurrent computing among many different
+        computers or machines is referred to as <b>Distributed Computing</b>.</p>
+
+      <p>Distributed computing can be as simple as transmitting data from one
+        computer to another over a network or it can involve many computers working
+        in cooperation to solve a much larger problem.  This may require some
+        level of coordination and organization.  One common pattern for this is
+        the <i>consumer-producer</i> pattern.</p>
+
+      <h2>Consumer-Producer Pattern</h2>
+
       <p>A common computing scenario is when there are a collection of independent
       asynchronous "entities" making requests for work that require computational
       resources. For example, you might have millions of users requesting information
@@ -243,12 +273,15 @@ a request, it is blocked and told to wait. The queue will then notify the consum
           <li>What happens when there are more consumers than producers?</li>
           <li>What happens when the queue is <em>full</em> and cannot take any more requests?</li>
         </ul>
-      <p>You will witness these situations in the following exercises.
+      <p>You will witness these situations in the following exercises.</p>
 
-      <h2 id="visualization">Visualization</h2>
+      <h1>Activities</h1>
+
+      <h2 style="padding-top: 1em;" id="visualization">1. Distributed Computing Visualization</h2>
+
       <p>To give you an idea of how a producer-consumer pattern works we&#39;ve provided
       a simple visualization simulating a generic request system.  Open the
-      <a href="./module03-01.html" target="_blank">demonstration</a> in a new tab.
+      <a href="./module-dist-visual.html" target="_blank">demonstration</a> in a new tab.
       You'll be able to specify how many producers and consumers to create and you can
       then start the demo.  Producers will (randomly every 2-6 seconds) produce new
       tasks and submit them to the queue.  Consumers will continuously try to take
@@ -269,16 +302,17 @@ a request, it is blocked and told to wait. The queue will then notify the consum
           that only allowed (say) 10 tasks in the queue at once.  What do you think
           would happen and how <em>should</em> that situation be handled?</li>
       </ol>
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-dist-visual.html" role="button">Start Visualization</a>
 
-      <h2 id="demonstration-exercises-java-version">Code Demonstration &amp; Exercises</h2>
 
-      <p>We have written a producer-consumer simulation in two different languages.
-        Choose either C or Java or do both!</p>
+      <h2 style="padding-top: 1em;" id="demonstration-exercises-java-version">2. Code Demonstration</h2>
 
-        <a class="btn btn-primary" href="module03-c.html" role="button">C Version</a>
-        <a class="btn btn-primary" href="module03-java.html" role="button">Java Version</a>
+      <p>In this activity, you will use parallel computing to speed up computations which
+        would otherwise take a significant amount of time using traditional methods.</p>
 
-      <h2>Discussion</h2>
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-dist-demo.html" role="button">Start Demo</a>
+
+      <h2 style="padding-top: 1em;">Discussion</h2>
 
       <p>Hopefully you made the following observations.</p>
       <ul>

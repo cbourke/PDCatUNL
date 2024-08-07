@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
     <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -105,6 +107,41 @@
       </symbol>
     </svg>
 
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -170,10 +207,6 @@
               </ul>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Version 1.1.0</a>
-            </li>
-
             </ul>
           </div>
         </div>
@@ -188,24 +221,80 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
-
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module-parallel.html" role="button">Get Started!</a>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Asynchronous Computing</p>
+            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
+    <div class="container col-8">
+        <h1 id="background">Background</h1>
+        We've seen how parallel computing can speed up computation by splitting
+        work among different processors.  Parallel computing is not the only
+        type of concurrent programming, there is also <b>Asycnhronous Computing</b>.
+
+        <h2 id="asynchronicity">Asynchronicity</h2>
+        <p>Software often needs to perform several tasks which do not need to
+          be done sequentially. This is true for most graphical interfaces which
+          allow users to interact with a program in multiple different ways. For
+          example, word processors let you continue to type whether you manually
+          save or auto-save the document. Video games let you to continue
+          playing while new obstacles or enemies appear or disappear. You would
+          become very frustrated if games froze frequently to redraw all the
+          items and characters. Instead, these kinds of tasks can be performed
+          asynchronously without blocking execution of other tasks.</p>
+        <p>Consider the sequential timeline again where tasks must <i>fully
+          complete</i> before the next task starts:
+          <p><img src="./assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+          Asynchronous computing enables tasks to "pause" or wait while
+          another task takes over.  For example, one task could pause
+          execution while it waits for more data to be sent over a relatively
+          slow network.  While the task waits, it gives control (often referred
+          to as <i>yielding</i>) to another task so that processor time is not
+          wasted waiting for the network.  This idea is depicted in the
+          following diagram.</p>
+        <p><img src="./assets/img/asynchronous.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Asynchronous Computing" title="Asynchronous Computing"></p>
+        <p>In this example, Task 1 executes for some time and then waits
+          or is <i>blocked</i> while Task 2 executes for some other amount of time. Task 1 then
+          takes over again and this trading back-and-forth continues until each task completes.
+          Note that only one task executes at a time, but multiple tasks can
+          execute asynchronously. This can provide a huge time savings.</p>
+        <p>If Task 1 had to wait for the result of Task 2, Task 1 would sit
+          idle until it received that result. Even worse, other tasks would
+          sit idle or be blocked until Task 1 completed. Blocked tasks can
+          cause your computer to freeze up entirely and require rebooting.</p>
+
+      <h1>Activities</h1>
+
+        <p>To understand these concepts further, you will engage in several
+          demonstrations.</p>
+
+        <h2 style="padding-top: 1em;" id="user-interface-playground">1. User Interface Playground</h2>
+        <p>Click the "Start Demonstration" button below.  This demonstration shows the differences
+          between a sequential task which <b>blocks</b> other tasks compared to an
+          asynchronous task which does not.</p>
+        <ol>
+        <li>Interact with the <code>Say Hello!</code> button and the <code>Action</code> drop-down to see how
+        they work.</li>
+        <li>Click the <code>Sequential Operation</code> button which will perform an &quot;expensive&quot;
+        sequential computation.  While it is executing attempt to interact with the
+        <code>Say Hello!</code> button and the <code>Action</code> drop down.  You can rerun the sequential
+        operation as many times as you need to observe the results.</li>
+        <li>Now click the <code>Asynchronous Operation</code> button which will perform an
+        asynchronous computation by connecting to a remote server.  While that asynchronous task
+        is executing, interact with the <code>Say Hello!</code> button and the <code>Action</code>
+        drop-down menu.  </li>
+        <li>Answer the following questions:<ul>
+        <li>What did you observe when interacting with the interface while the
+        sequential operation was executing?</li>
+        <li>What did you observe when interacting with the interface while the
+        asynchronous operation was executing?</li>
+        <li>What are the consequences of sequential vs asynchronous operations?</li>
+        </ul>
+        </li>
+        </ol>
+        <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-asynch-demo.html" role="button">Start Demonstration</a>
+
+    </div>
 
   </div>
 </main>

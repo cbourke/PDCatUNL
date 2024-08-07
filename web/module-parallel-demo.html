@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
     <title>Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</title>
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -105,6 +107,42 @@
       </symbol>
     </svg>
 
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -170,15 +208,12 @@
               </ul>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Version 1.1.0</a>
-            </li>
-
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
 
 <!-- Begin page content -->
 
@@ -188,25 +223,39 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
-
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module-parallel.html" role="button">Get Started!</a>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Parallel Computing - Code Demonstration</p>
+            <p>In this activity, you will use parallel computing to speed up computations which would otherwise take a significant amount of time using traditional methods.</p>
           </div>
         </div>
+    <div class="container col-9">
 
+      <h1 id="passwords-hashing">Passwords &amp; Hashing</h1>
+      <p>Secure systems typically require users to authenticate their identities using a password before granting access. However, it is best practice to not save the actual passwords within the system because that could allow some users to see everyone else&#39;s passwords. To avoid this problem, <em>hashes</em> of passwords are stored instead.</p>
+      <p>A <em>hash</em> is a mapping from the set of all possible passwords to fixed-length values which are represented in hexadecimal (base 16) strings. There are many different <em>cryptographic</em> hash functions used for this purpose. For example, a SHA-256 mapping of the password <code>&quot;password1234&quot;</code> maps to the following hexadecimal string value:</p>
+      <p><code>&quot;0xb9c950640e1b3740e98acb93e669c65766f6670dd1609ba91ff41052ba48c6f3&quot;</code></p>
+      <p>This hash value is stored instead of the actual password. When users attempt to login with their passwords, the system rehashes those inputs to generate a hexadecimal string which is then compared to the stored hash. If the rehased value from the user matches the stored value, access is granted.</p>
+      <p>This process is more complicated in practice, but we will use this basic understanding to show how you could <em>break</em> password encryption schemes.</p>
+      <h2 id="breaking-passwords">Breaking Passwords</h2>
+      <p>Hackers often break into systems by stealing lists of hashed passwords and then attempting to &quot;break&quot; them by determining which passwords map to those hash values. Mathematically, these type of encryption schemes make it <em>impossible</em> for you to &quot;work backwards.&quot;</p>
+      <p>Given the hash value:</p>
+      <p><code>&quot;0xb9a172c2c7028ca0d299cb77ac5e727cf0c28bcf0ab42bb93f45b73c22a06d9a&quot;</code></p>
+      <p>you would never be able to find the correct password which maps to this
+      hash because there could be <em>multiple</em> passwords which map to it! However,
+      you <em>can</em> make guesses until you find one that matches.</p>
+      <p>For example, users tend to use passwords which are common words or sequences of characters like &quot;secret&quot; or &quot;qwerty&quot;. These types of passwords are bad choices because they are weak to <em>dictionary attacks</em>. A dictionary attack involves using a common English dictionary or list of known popular passwords as your starting guesses. You then hash every entry in your dictionary and check whether it matches the given hash. If you find a match, then you know the original password!</p>
+      <p>One approach for defeating this &quot;easy&quot; attack is to require users to create passwords which contain at least one character which is: an uppercase letter, a lowercase letter, a number, and a special symbol. This doesn&#39;t prevent anyone from trying to &quot;brute force&quot; every possibility, but it makes it more difficult than if you only had to guess common words.</p>
+      <h1 id="demonstration-exercises-c-version">Demonstration &amp; Exercises</h1>
+
+      <p>We have provided two demonstrations with the same exercises but using two different
+        languages.  Choose either C or Java or do both!</p>
+
+        <a class="btn btn-primary" href="module-parallel-demo-c.html" role="button">C Version</a>
+        <a class="btn btn-primary" href="module-parallel-demo-java.html" role="button">Java Version</a>
+
+      <div style="min-height: 200px;">&nbsp;</div>
+
+    </div>
   </div>
 </main>
 

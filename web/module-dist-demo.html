@@ -12,15 +12,6 @@
 
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -152,59 +143,77 @@ font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     </div>
 
 
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand">PDC@UNL</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
-              <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
-              <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./module02.html">Module 2.0</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 3.0</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./module03.html">Overview</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module03-01.html">Demo</a></li>
-              <div class="dropdown-divider"></div>
-              <li><a class="dropdown-item" href="./module03-c.html">C Version</a></li>
-              <li><a class="dropdown-item" href="./module03-java.html">Java Version</a></li>
-            </ul>
-          </li>
-          <!--
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">PDC@UNL</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+
+              <!--
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Module 1.0</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./module01.html">Overview</a></li>
+                  <div class="dropdown-divider"></div>
+                  <li><a class="dropdown-item" href="./module01-01.html">Asynch Demo 1</a></li>
+                  <li><a class="dropdown-item" href="./module01-02.html">Asynch Demo 2</a></li>
+                  <li><a class="dropdown-item" href="./module01-03.html">Parallel Demo</a></li>
+                </ul>
+              </li>
             -->
-        </ul>
-        <!--
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-         -->
-      </div>
-    </div>
-  </nav>
-</header>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Parallel Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-parallel.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="./module-parallel-visual.html">Visualization Demo</a></li>
+                <li><a class="dropdown-item" href="./module-parallel-demo.html">Code Demo</a></li>
+                <li><a class="dropdown-item" href="./module-parallel-tutorial.html">Code Tutorial</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="./module-parallel.html" data-bs-toggle="dropdown" aria-expanded="false">Asynchronous Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-asynch.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <!-- TODO: Design a sequence graph visualization demo
+                <li><a class="dropdown-item" href="./module-asynch-visual.html">Demo</a></li>
+                -->
+                <li><a class="dropdown-item" href="./module-asynch-demo.html">Demo</a></li>
+                <!--
+                <li><a class="dropdown-item" href="./module-asynch-demo.html">Code Demo</a></li>
+                <li><a class="dropdown-item" href="./module-asynch-tutorial.html">Code Tutorial</a></li>
+                -->
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="./module-dist.html" data-bs-toggle="dropdown" aria-expanded="false">Distributed Computing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./module-dist.html">Overview</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="./module-dist-visual.html">Visualization Demo</a></li>
+                <li><a class="dropdown-item" href="./module-dist-demo.html">Code Demo</a></li>
+                <!--
+                <li><a class="dropdown-item" href="./module-asynch-tutorial.html">Code Tutorial</a></li>
+                -->
+              </ul>
+            </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
 
 <!-- Begin page content -->
 
@@ -215,113 +224,24 @@ font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">PDC@UNL</h1>
-            <p class="col-md-8 fs-4">Module 3.0 - C Demonstration</p>
-            <p class="col-md-8 fs-4"></p>
+            <p class="col-md-8 fs-4">Distributed Computing - Code Demonstration</p>
 
-            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
     <div class="container col-9">
 
-      <h2 id="demonstration-exercises-java-version">Demonstration &amp; Exercises - C version</h2>
-      <p>We have written a producer-consumer simulation in C that is available
-      in the project available at <a href="https://github.com/cbourke/PDCatUNL">https://github.com/cbourke/PDCatUNL</a></p>
-      <p>Navigate to the <code>producerConsumer</code> folder.  We have organized
-      the code into different source files representing producers, consumers, etc.
+      <h1 id="passwords-hashing">Code Demonstration</h1>
 
-      <ul>
-      <li><code>producer.c</code> is the producer code; the <code>produce()</code>
-        function runs continuously in its own thread and generates a new request
-        at random intervals (default: 2-5 seconds; you can change this in the
-        <code>simulation.c</code> file; be sure to run the <code>make simulate</code> command
-        if you do).</li>
-      <li><code>consumer.c</code> is the consumer code; the <code>consume()</code>
-        function runs continuously in its own thread and handles requests.
-      <li><code>request.c</code> is the actual request code.
-      It simply makes a dummy request to a webserver that &quot;simulates&quot; work by making
-      an artificial delay between 2 and 5 seconds (randomly)</li>
-      <li><code>queue.c</code> contains all the code that coordinates the
-        simulation by managing the request queue (using
-        <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">sempahores</a> and a
-        <a href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a> if you'd
-        like to read more).</li>
-      <li><code>simulation.c</code> is the main code that creates and starts
-        all the threads.  </li>
-      </ul>
+      <p>We have written a producer-consumer simulation in two different languages.
+        Choose either C or Java or do both!</p>
 
-      <h3 id="instructions">Instructions</h3>
-      <ol>
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="module-dist-demo-c.html" role="button">C Version</a>
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="module-dist-demo-java.html" role="button">Java Version</a>
 
-      <li>Compile the program using the following (note: we recommend that you compile
-      and run on the CSE server).
 
-      <pre><code class="lang-text"><span class="hljs-attribute">make simulate</span>
-      </code></pre>
-
-      Run the program using the following.
-
-      <pre><code class="lang-text"><span class="hljs-attribute">./simulate 5 5</span>
-      </code></pre>
-
-      This will launch the simulation using 5 producers and 5 consumers.
-      </li>
-      <li>Run the simulation by running the <code>Simulation</code> class with the default parameters and
-      observe the output.  The producers and consumer report on each action and the queue monitor
-      periodically reports how many tasks are waiting in the queue.  The simulation runs
-      continuously; to stop it you&#39;ll need
-      to kill the program manually (control-c on the command line).  </li>
-
-      <li>Run/rerun the simulation for a few minutes with the following parameters and observe and
-      note the results.</li>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky">Number of Producers</th>
-    <th class="tg-0pky">Number of Consumers</th>
-    <th class="tg-0pky">Interval Min</th>
-    <th class="tg-0pky">Interval Max</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">6<br></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">1<br></td>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">6<br></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">1</td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">6</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">1</td>
-    <td class="tg-0pky">2<br></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">5<br></td>
-    <td class="tg-0pky">5</td>
-    <td class="tg-0pky">5</td>
-    <td class="tg-0pky">10<br></td>
-  </tr>
-</tbody>
-</table>
-      <li>Go back to the module <a href="module03.html">overview</a> and read the Discussion section.</li>
-
-      </ol>
-
+      <div style="min-height: 200px;">&nbsp;</div>
 
     </div>
-
   </div>
 </main>
 

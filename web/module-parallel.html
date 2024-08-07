@@ -170,15 +170,12 @@
               </ul>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Version 1.1.0</a>
-            </li>
-
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
 
 <!-- Begin page content -->
 
@@ -188,24 +185,130 @@
 
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Parallel &amp; Distributed Computing at the University of Nebraska-Lincoln</h1>
-
-            <p class="col-md-8 fs-5">
-              Traditionally, PDC concepts and topics are covered late in a computing
-              curriculum and generally as a non-required elective.  However,
-              modern computing demands that these topics take a much more central
-              role in computing curriculum.  The cheapest of processors are multicore,
-              IoT architecture makes even basic computing distributed by nature, and
-              all consumer facing applications are expected to be asynchronous and
-              efficient.</p>
-            <p class="col-md-8 fs-5">
-              The PDC@UNL project aims to introduce PDC concepts early in computing
-              curriculum by developing modules, demonstrations, visualizations, and
-              other materials that are accessible to students in introductory computing
-              courses by taking a codeless and code-light approach.</p>
-            <a class="btn btn-primary" href="module-parallel.html" role="button">Get Started!</a>
+            <h1 class="display-5 fw-bold">PDC@UNL</h1>
+            <p class="col-md-8 fs-4">Parallel Computing</p>
+            <!--<button class="btn btn-primary btn-lg" type="button">Example button</button>-->
           </div>
         </div>
+    <div class="container col-8">
+        <h1 id="background">Background</h1>
+        <p><b>Multitasking</b> can save a lot of time when performing everyday tasks.
+          For example, if you need to boil water for cooking a meal, you wouldn’t
+          just stand and watch the water warm up to the boiling point. Instead, you
+          would work on other tasks like cutting vegetables or measuring how much
+          pasta to cook. In a restaurant kitchen, you would need to simultaneously
+          coordinate tasks based on various skills and responsibilities to prepare
+          dishes. Multitasking does not reduce the total amount of work required,
+          but it does let you complete that work in less time.</p>
+        <p>Computing takes advantage of similar multitasking concepts, but in
+          general, a single processor can execute only one process, task, or
+          operation at a time. However, if one operation needs to complete before
+          another, such as boiling water before putting pasta into the pot, a
+          processor can switch from its current process to perform others
+          instead of sitting idle. Modern computers have multiple processors or
+          cores so they can perform multiple tasks in <b>parallel</b> or <i>
+          at the same time</i>. As with preparing
+          food, a computer cannot reduce the total amount of work, but parallel
+          execution can greatly reduce the overall time needed to execute that work.</p>
+        <h2 id="sequential-vs-computing">Sequential vs. Parallel Computing</h2>
+
+        <h3 id="sequential-computing">Sequential Computing</h3>
+        <p><strong>Sequential Computing</strong> is the traditional way we think about
+          computing. A program's statements execute in sequential order, one after the
+          other. For example, the following "code" has three distinct statements:</p>
+        <pre><code class="lang-text">
+        statement A<span class="hljs-comment">;</span>
+        statement B<span class="hljs-comment">;</span>
+        statement C<span class="hljs-comment">;</span>
+        </code></pre>
+        <p>each statement would execute in the order written: first <code>A</code>,
+          then <code>B</code>, then <code>C</code>. Importantly, a statement would
+          only execute after the previous statement completely finishes. If a
+          statement consists of multiple operations, the whole expression would
+          be evaluated before moving on. This next example shows an addition and
+          subtraction which must both be done before assigning the value to the
+          variable <code>r</code>:</p>
+        <pre><code class="lang-text">
+        <span class="hljs-attribute">r</span> = x + y - z;
+        <span class="hljs-attribute">statement</span> B;
+        </code></pre>
+        <p>and only after that would <code>statement B</code> execute. We can visualize
+          these sequential operations as general tasks that must be completed
+          before beginning the next task along a timeline.</p>
+        <p><img src="./assets/img/sequential.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Sequential Computing" title="Sequential Computing"></p>
+        <p>This chart shows how each task must fully execute before beginning the next task.</p>
+
+        <h3 id="concurrency">Concurrency &amp; Parallel Computing</h3>
+        <p>We’ve seen how sequential computing can be inefficient because only
+          one task can be done at a time, but certain other tasks could be done
+          simultaneously. It wouldn’t matter if you are only able to do one thing
+          at a time, but if you can multitask, you can work more efficiently.</p>
+        <p>Concurrency is the ability of a computer to perform different tasks
+          (or even different parts of a program or algorithm) at the same time,
+          not necessarily in sequential order, without affecting behavior or
+          correctness of a program.</p>
+        <p>One way of achieving concurrency in computing is through <b>parallel
+          computing</b> which means more than one task executes at the same time.  The following
+          example demonstrates 3 tasks running all at the same time. </p>
+        <p><img src="./assets/img/parallel.png" class="img-fluid col-9 rounded mx-auto d-block" alt="Asynchronous Computing" title="Asynchronous Computing"></p>
+        <p>Generally, parallel computing requires each task to execute on a
+          different processor or core, but the advantage is clear: if we execute
+          more than one task at the same time, the overall time required to
+          complete all tasks can be reduced significantly. For example, if the
+          time required to complete all tasks sequentially is 20 seconds but
+          we evenly divide it among 4 processors, the total "wall clock" time
+          would only be 5 seconds!</p>
+
+        <h1>Activities</h1>
+
+        <p>To understand these concepts further, you will engage in several
+          demonstrations.
+        <h2 style="padding-top: 1em;" id="parallel-computing-visualization">1. Parallel Computing Visualization</h2>
+        <p>Click the "Start Visialization" button below to launch our simulation and visualization of parallel
+          computing. The simulation allows you to generates a certain number of tasks and places
+          them in a "task queue" where they wait to be executed. You can select the
+          number of tasks to generate and how long they will take to execute. You
+          can make them all take the same number of seconds from two to six or they
+          will be randomized by default. You can also specify how many processors
+          each simulation can use.</p>
+        <ol>
+        <li>Run the simulation with only 1 processor and 10 tasks and observe the results.  Note
+        that the total CPU time (upper right) is equal to the total &quot;wall clock&quot; time.</li>
+        <li>Run the simulation again with 2 processors and the same number of tasks.  </li>
+        <li>Run the simulation again with 4 processors.</li>
+        <li>Play around with the simulation with a different number of tasks, processors, and
+        times and answer the following:<ul>
+        <li>When you went from 1 processor to 2 processors what was the difference in the
+        <em>elapsed time</em> you observed?  What about the difference from 2 to 4 processors?</li>
+        <li>When you went from 1 processor to 2 processors what was the difference in the
+        <em>CPU time</em> you observed?  What about the difference from 2 to 4 processors?</li>
+        <li>Was the work (number of tasks) always equally distributed among all the processors?
+        Why or why not?</li>
+        <li>Was the work (total time) always equally distributed among all the processors?
+        Why or why not?</li>
+        </ul>
+        </li>
+        </ol>
+        <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-parallel-visual.html" role="button">Start Visualization</a>
+
+
+        <h2 style="padding-top: 1em;" id="parallel-computing-demonstration">2. Parallel Computing Code Demonstration</h2>
+        <p>In this activity, you will use parallel computing to speed up computations which
+          would otherwise take a significant amount of time using traditional methods.</p>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-parallel-demo.html" role="button">Start Demo</a>
+
+
+        <h2 style="padding-top: 1em;" id="parallel-computing-tutorial">3. Parallel Computing Code Tutorial (optional)</h2>
+        <p>In this <i>optional</i> activity, we will walk you through a tutorial on using
+          <a href="https://www.openmp.org/">OpenMP</a> in C which allows you to use some very
+          simple code to automatically parallelize your code!</p>
+
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="./module-parallel-tutorial.html" role="button">Start Tutorial</a>
+
+    </div>
+
+
 
   </div>
 </main>
