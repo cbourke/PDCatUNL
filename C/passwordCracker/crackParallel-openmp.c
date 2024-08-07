@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
-#include <omp.h>
+//TODO: add code here
 
 #include "sha256.h"
 #include "utils.h"
@@ -26,16 +26,12 @@ int main(int argc, char **argv) {
   initDictionary();
 
   printf("Using %d threads...\n", numThreads);
-  omp_set_num_threads(numThreads);
+  //TODO: add code here
 
   //search all 2 digit appended numbers...
   int m = 100;
 
-  //private: copy for each thread
-  //shared: each thread should only read
-  //schedule: guided = chunk size starts off large and decreases to better handle load imbalance between iterations.
-  //          2000 = minimum chunk size to use
-  #pragma omp parallel for private(password,j,hash),shared(hashedPassword,m,DICTIONARY),schedule(guided, 2000)
+  //TODO: add code here
   for(i=0; i<NUM_WORDS; i++) {
     for(j=0; j<m; j++) {
       //create password
