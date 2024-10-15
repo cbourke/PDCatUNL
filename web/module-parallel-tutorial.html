@@ -254,9 +254,17 @@
       <h2>Instructions</h2>
       <ol>
         <li>Open the <code>crackParallel-openmp.c</code> in an editor and briefly
-          compare it to the <code>crackSequential.c</code>.  Some code to support
-          a number of threasd command line argument has already been provided for
-          you.</li>
+          compare it to the <code>crackSequential.c</code>.  We recommend you use 
+          the <code>pico</code> editor.  From the command line use:<br/><br/>  
+
+		  <code>pico crackParallel-open.c</code><br/><br/>  
+		  
+		  This will open a TUI (Text User Interface) editor.  You can start 
+		  typing/deleting.  When you are done, exit the editor using <code>control-X</code> 
+		  and it will prompt you if you want to save or not; type <code>Y</code> to save.<br/><br/>  
+          
+          Some code to support the number of threads as a command line argument 
+          has already been provided for you.</li>
         <li>Include the OpenMP library by adding the following include statement.<br/>
           <code>#include &lt;omp.h&gt;</code></li>
         <li>After the dictionary has been loaded (the call to the <code>initDictionary()</code>),
