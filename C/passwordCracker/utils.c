@@ -5,6 +5,7 @@
 #include "utils.h"
 
 const int NUM_WORDS = 247406;
+char **DICTIONARY;
 
 void initDictionary() {
   DICTIONARY = (char **) malloc(sizeof(char *) * NUM_WORDS);
